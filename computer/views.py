@@ -51,6 +51,6 @@ class ComputerRUD(APIView):
         pk = kwargs['pk']
         try:
             ComputerModel.objects.get(pk=pk).delete()
-        except:
-            return Response(f"computer {pk} does not exist")
+        except ComputerModel.DoesNotExist:
+            return Response(f"computer {pk} does not exist",status=status.HTTP_404_NOT_FOUND)
         return Response(status=status.HTTP_204_NO_CONTENT)
