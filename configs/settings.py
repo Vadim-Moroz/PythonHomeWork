@@ -35,8 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.staticfiles',
 
-    # #my_apps
-    'computer',
+    # my_apps
+    # Власні застосунки проєкту
+    'apps.core',
+    'apps.pizza',
 ]
 
 MIDDLEWARE = [

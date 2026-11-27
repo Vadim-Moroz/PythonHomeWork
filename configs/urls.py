@@ -14,10 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
-from computer.views import ComputerC,ComputerRUD
+from django.urls import path,include
+
+from apps import pizza
 
 urlpatterns = [
-    path('computer', ComputerC.as_view()),
-    path('computer/<int:pk>', ComputerRUD.as_view()),
+    # Визначає базовий URL-шлях для застосунків проєкту та підключає його URL-маршрути
+    path('pizzas',include('apps.pizza.urls')),
+
 ]
